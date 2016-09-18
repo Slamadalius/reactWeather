@@ -39,21 +39,41 @@ var Weather = React.createClass({
         isLoading: false,
         location: null,
         temp: null,
+        humidity: null,
+        description: null,
+        clouds: null,
+        icon: null,
         errorMessage: e.message
       });
     })
   },
+  // componentDidMount: function () {
+  //   var location = this.props.location.query.location;
+  //
+  //   if (location && location.length > 0) {
+  //     this.handleSearch(location);
+  //     window.location.hash = '#/';
+  //   }
+  // },
+  // componentWillReceiveProps: function (newProps) {
+  //   var location = newProps.location.query.location;
+  //
+  //   if (location && location.length > 0) {
+  //     this.handleSearch(location);
+  //     window.location.hash = '#/';
+  //   }
+  // },
   render: function () {
     var{isLoading, temp, humidity, description, icon, clouds, location, errorMessage} = this.state;
 
     function renderMessage() {
       if(isLoading){
+        debugger;
         return <h3>Fetching weather...</h3>
       } else if (temp && location) {
         return <WeatherMessage temp={temp} location={location} humidity={humidity} description={description} icon={icon} clouds={clouds}/>;
       }
     }
-
     function renderError() {
       if(typeof errorMessage === 'string') {
         return(

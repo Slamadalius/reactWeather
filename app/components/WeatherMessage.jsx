@@ -6,7 +6,7 @@ var WeatherMessage = React.createClass({
     var {temp,location, humidity, description, icon, clouds} = this.props;
     var icons =  "http://openweathermap.org/img/w/" + icon + ".png";
     return(
-        <div classNam="weather font cursor-default">
+        <div className="weather font cursor-default">
           <div className="weather-location text-center cursor-default">{location}</div>
           <div className="weather-icon"><img className="weather-image" src={icons}/></div>
 
