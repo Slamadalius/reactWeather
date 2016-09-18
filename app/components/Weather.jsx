@@ -15,13 +15,23 @@ var Weather = React.createClass({
 
     this.setState({
       isLoading: true,
-      errorMessage: undefined
+      errorMessage: undefined,
+      location: undefined,
+      temp: undefined,
+      humidity: undefined,
+      description: undefined,
+      clouds: undefined,
+      icon: undefined
     });
 
-    openWeatherMap.getTemp(location).then(function (temp) {
+    openWeatherMap.getTemp(location).then(function (weather) {
       that.setState({
         location: location,
-        temp: temp,
+        temp: weather.temp,
+        humidity: weather.humidity,
+        description: weather.description,
+        clouds: weather.clouds,
+        icon: weather.icon,
         isLoading: false
       });
     }, function (e) {
@@ -34,13 +44,13 @@ var Weather = React.createClass({
     })
   },
   render: function () {
-    var{isLoading, temp, location, errorMessage} = this.state;
+    var{isLoading, temp, humidity, description, icon, clouds, location, errorMessage} = this.state;
 
     function renderMessage() {
       if(isLoading){
         return <h3>Fetching weather...</h3>
       } else if (temp && location) {
-        return <WeatherMessage temp={temp} location={location}/>;
+        return <WeatherMessage temp={temp} location={location} humidity={humidity} description={description} icon={icon} clouds={clouds}/>;
       }
     }
 
@@ -54,7 +64,7 @@ var Weather = React.createClass({
 
     return (
       <div>
-        <h1 className="text-center">Get Weather</h1>
+        <h1 className="text-center page-title">Get Weather</h1>
         <WeatherForm onSearch={this.handleSearch}/>
         {renderMessage()}
         {renderError()}

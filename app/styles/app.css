@@ -1,0 +1,38 @@
+.page-title {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+input[type=search] {
+  box-shadow: none;
+}
+
+.weather-location
+{
+  font-size: 30px;
+  text-transform:uppercase;
+}
+.weather-icon
+{
+  height: 70px;
+  display: flex;;
+  justify-content: center;
+  align-items: center;
+}
+.weather-image
+{
+  height: 60px;
+  width: 60px;
+}
+.weather-item, .weather-parameters
+{
+  float: left;
+  width: 50%;
+
+}
+.weather-eachItem, .weather-eachParameters
+{
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
