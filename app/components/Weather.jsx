@@ -24,7 +24,7 @@ var Weather = React.createClass({
       icon: undefined
     });
 
-    openWeatherMap.getTemp(location).then(function (weather) {
+    openWeatherMap.getWeather(location).then(function (weather) {
       that.setState({
         location: location,
         temp: weather.temp,
@@ -37,12 +37,12 @@ var Weather = React.createClass({
     }, function (e) {
       that.setState({
         isLoading: false,
-        location: null,
-        temp: null,
-        humidity: null,
-        description: null,
-        clouds: null,
-        icon: null,
+        // location: null,
+        // temp: null,
+        // humidity: null,
+        // description: null,
+        // clouds: null,
+        // icon: null,
         errorMessage: e.message
       });
     })
@@ -70,7 +70,7 @@ var Weather = React.createClass({
       if(isLoading){
         debugger;
         return <h3>Fetching weather...</h3>
-      } else if (temp && location) {
+      } else if (location) {
         return <WeatherMessage temp={temp} location={location} humidity={humidity} description={description} icon={icon} clouds={clouds}/>;
       }
     }
