@@ -44,6 +44,14 @@ module.exports = {
         },
         test: /\.jsx?$/,
         exclude: /(node_module|bower_components)/
+      },
+      {
+        test: /\.png$/,
+        loader: "url-loader?mimetype=image/png"
+      },
+      {
+      test: /\.jpg$/,
+      loader: "url-loader?mimetype=image/jpg"
       }
     ]
   },

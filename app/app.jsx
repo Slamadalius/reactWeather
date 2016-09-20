@@ -13,14 +13,11 @@ $(document).foundation();
 // App css
 require('style!css!sass!applicationStyles')
 
-
 ReactDOM.render(
     <Router history={hashHistory}>
-        <Route path="/" component={Main}>
-            <Route path="about" component={About}></Route>
-            <Route path="example" component={Example}></Route>
-            <IndexRoute component={Weather} />
-        </Route>
-    </Router>,
-    document.getElementById('app')
-);
+    <Route path="/" component={Main}>
+        <Route path="about" component={About}></Route>
+        <Route path="example" component={Example}></Route>
+        <IndexRoute component={Weather}/>
+    </Route>
+</Router>, document.getElementById('app'));
